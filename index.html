@@ -3,101 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>RDS - Rajib Digital Solution</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <!-- SEO Meta Tags -->
+    <title>RDS - Rajib Digital Solution | Software House & Cyber Security Specialist</title>
+    <meta name="description" content="RDS - Rajib Digital Solution menyediakan layanan Web Development, Mobile App, Cyber Security, dan Custom Software. Solusi digital terpercaya untuk bisnis Anda.">
+    <meta name="keywords" content="software house, web development, mobile app, cyber security, jasa buat website, jasa pembuatan aplikasi, bogor, indonesia">
+    <meta name="author" content="Rajib Digital Solution">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Indonesian">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rds-rajib-digital-solution.vercel.app/">
+    <meta property="og:title" content="RDS - Rajib Digital Solution">
+    <meta property="og:description" content="Software House & Cyber Security Specialist. Solusi digital terpercaya untuk bisnis Anda.">
+    <meta property="og:image" content="https://rds-rajib-digital-solution.vercel.app/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rds-rajib-digital-solution.vercel.app/">
+    <meta property="twitter:title" content="RDS - Rajib Digital Solution">
+    <meta property="twitter:description" content="Software House & Cyber Security Specialist">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rds-rajib-digital-solution.vercel.app/">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Schema Markup untuk SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Rajib Digital Solution",
+        "image": "https://rds-rajib-digital-solution.vercel.app/images/logo.png",
+        "description": "Software House & Cyber Security Specialist di Bogor, Indonesia.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bogor",
+            "addressCountry": "Indonesia"
+        },
+        "telephone": "+628211951858",
+        "priceRange": "Rp$$",
+        "sameAs": [
+            "https://www.instagram.com/rajibdigital",
+            "https://wa.me/628211951858"
+        ]
+    }
+    </script>
 </head>
 <body>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/628211951858" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<a href="https://wa.me/628211951858" class="wa-float" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img src="images/logo.png" alt="RDS Logo" class="logo-img" style="width: 40px; height: 40px; border-radius: 10px;">
+            <div>
                 <h1>RDS</h1>
                 <p>Rajib Digital Solution</p>
             </div>
-            <nav class="nav" id="navMenu">
+        </div>
+        <nav class="nav" id="navMenu">
+            <a href="index.html">Beranda</a>
+            <a href="services.html">Layanan</a>
+            <a href="portfolio.html">Portofolio</a>
+            <a href="blog.html">Blog</a>
+            <a href="booking.html">Booking</a>
+            <a href="contact.html">Kontak</a>
+            <a href="chat.html">💬 Chat</a>
+            <a href="admin/login.html" class="admin-link">🔒 Admin</a>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-shield-alt"></i> Trusted Since 2025
+        </div>
+        <h1 id="typingTitle"></h1>
+        <p>Web Development • Mobile App • Cyber Security • Custom Software</p>
+        <div class="hero-buttons">
+            <a href="services.html" class="btn-primary">🔥 Lihat Layanan</a>
+            <a href="booking.html" class="btn-secondary">📞 Konsultasi Gratis</a>
+        </div>
+        <div class="stats">
+            <div class="stat"><h3>50+</h3><p>Proyek Selesai</p></div>
+            <div class="stat"><h3>100%</h3><p>Kepuasan Klien</p></div>
+            <div class="stat"><h3>24/7</h3><p>Support</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <div class="container">
+        <h2 class="section-title">Layanan Premium RDS</h2>
+        <p class="section-subtitle">Solusi end-to-end untuk kebutuhan digital Anda</p>
+        <div class="services-grid" id="servicesGrid"></div>
+    </div>
+</section>
+
+<section class="portfolio">
+    <div class="container">
+        <h2 class="section-title">Portofolio Terbaru</h2>
+        <p class="section-subtitle">Beberapa karya unggulan RDS</p>
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>RDS</h3>
+                <p>Rajib Digital Solution — Software House & Cyber Security.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Menu</h4>
                 <a href="index.html">Beranda</a>
                 <a href="services.html">Layanan</a>
                 <a href="portfolio.html">Portofolio</a>
+                <a href="blog.html">Blog</a>
+                <a href="booking.html">Booking</a>
                 <a href="contact.html">Kontak</a>
-            </nav>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
+            </div>
+            <div>
+                <h4>Kontak</h4>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/628211951858">+62 821-1951-858</a></p>
+                <p><i class="fas fa-envelope"></i> rajibdigitalsolution@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bogor, Indonesia</p>
+            </div>
+            <div>
+                <h4>Jam Operasional</h4>
+                <p>Senin - Jumat: 09:00 - 18:00</p>
+                <p>Sabtu: 09:00 - 14:00</p>
+                <p>Minggu: Libur</p>
             </div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1 id="typingTitle"></h1>
-            <p id="heroDesc"></p>
-            <div class="hero-buttons">
-                <a href="services.html" class="btn-primary">Lihat Layanan</a>
-                <a href="contact.html" class="btn-secondary">Konsultasi Gratis</a>
-            </div>
-            <div class="stats">
-                <div class="stat"><h3>50+</h3><p>Proyek Selesai</p></div>
-                <div class="stat"><h3>100%</h3><p>Kepuasan Klien</p></div>
-                <div class="stat"><h3>24/7</h3><p>Support</p></div>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2025 RDS - Rajib Digital Solution. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Sitemap</a>
+            </p>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Layanan Premium RDS</h2>
-            <p class="section-subtitle">Solusi end-to-end untuk kebutuhan digital Anda</p>
-            <div class="services-grid" id="servicesGrid"></div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Portofolio Terbaru</h2>
-            <p class="section-subtitle">Beberapa karya unggulan RDS</p>
-            <div class="portfolio-grid" id="portfolioGrid"></div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3>RDS</h3>
-                    <p>Rajib Digital Solution — Software House & Cyber Security.</p>
-                    <div class="social-links" id="socialLinks"></div>
-                </div>
-                <div>
-                    <h4>Menu</h4>
-                    <a href="index.html">Beranda</a>
-                    <a href="services.html">Layanan</a>
-                    <a href="portfolio.html">Portofolio</a>
-                    <a href="contact.html">Kontak</a>
-                </div>
-                <div>
-                    <h4>Kontak</h4>
-                    <p><i class="fab fa-whatsapp"></i> +62 821-1951-858</p>
-                    <p><i class="fas fa-envelope"></i> rajibdigitalsolution@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Bogor, Indonesia</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 RDS - Rajib Digital Solution. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
