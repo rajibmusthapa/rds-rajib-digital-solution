@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Blog Detail - RDS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-detail-hero {
+            background: linear-gradient(135deg, #0a192f, #0a0f1a);
+            padding: 120px 0 40px;
+            text-align: center;
+        }
+        .blog-detail-hero h1 { font-size: 42px; margin-bottom: 15px; }
+        .blog-detail-meta { font-size: 14px; color: #94a3b8; margin-bottom: 20px; }
+        .blog-detail-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+            line-height: 1.8;
+        }
+        .blog-detail-body p { margin-bottom: 20px; }
+        .back-to-blog { display: inline-block; margin-top: 30px; }
+        @media (max-width: 768px) {
+            .blog-detail-hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://wa.me/628211951858" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo"><h1>RDS</h1><p>Rajib Digital Solution</p></div>
+            <nav class="nav" id="navMenu">
+                <a href="index.html">Beranda</a>
+                <a href="services.html">Layanan</a>
+                <a href="portfolio.html">Portofolio</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Kontak</a>
+            </nav>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <div class="blog-detail-hero" id="blogDetailHero"></div>
+    <div class="blog-detail-content" id="blogDetailContent"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><h3>RDS</h3><div class="social-links" id="socialLinks"></div></div>
+                <div><h4>Menu</h4><a href="index.html">Beranda</a><a href="blog.html">Blog</a></div>
+                <div><h4>Kontak</h4><p><i class="fab fa-whatsapp"></i> +62 821-1951-858</p></div>
+            </div>
+            <div class="footer-bottom"><p>© 2025 RDS - Rajib Digital Solution.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const blogDataLocal = [
+            { id: 1, title: "Cara Melindungi Website dari Serangan XSS", date: "15 Mei 2025", category: "Security", content: "<p>Cross-Site Scripting (XSS) adalah salah satu kerentanan keamanan yang paling umum ditemukan pada aplikasi web. XSS memungkinkan penyerang untuk menyuntikkan script berbahaya ke dalam halaman web yang dilihat oleh pengguna lain.</p><p>Berikut adalah beberapa cara melindungi website dari serangan XSS: <strong>1. Validasi Input</strong> - Selalu validasi input dari pengguna. <strong>2. Sanitasi Output</strong> - Encode karakter berbahaya seperti &lt; &gt; &quot; &apos; &amp;. <strong>3. Gunakan CSP (Content Security Policy)</strong> - Batasi sumber script yang boleh dijalankan.</p>" },
+            { id: 2, title: "5 Tips Meningkatkan Kecepatan Website", date: "10 Mei 2025", category: "Tips", content: "<p>Kecepatan website adalah faktor penting untuk SEO dan pengalaman pengguna. Berikut 5 tips meningkatkannya: <strong>1. Kompres gambar</strong> - Gunakan format WebP. <strong>2. Minify CSS/JS</strong> - Perkecil ukuran file. <strong>3. Gunakan CDN</strong> - Sebarkan konten ke server terdekat. <strong>4. Cache browser</strong> - Simpan aset statis. <strong>5. Optimasi database</strong> - Hapus data tidak perlu.</p>" },
+            { id: 3, title: "Mengapa Bisnis Perlu Aplikasi Mobile?", date: "5 Mei 2025", category: "Mobile", content: "<p>Aplikasi mobile bukan lagi kemewahan, tapi kebutuhan. Berikut alasannya: <strong>1. Akses 24/7</strong> - Pelanggan bisa mengakses kapan saja. <strong>2. Personalisasi</strong> - Pengalaman yang lebih personal. <strong>3. Notifikasi push</strong> - Komunikasi langsung dengan pelanggan. <strong>4. Branding</strong> - Meningkatkan citra profesional. <strong>5. Keuntungan kompetitif</strong> - Stay ahead dari pesaing.</p>" }
+        ];
+        
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        
+        const id = getQueryParam('id');
+        const blog = blogDataLocal.find(b => b.id == id) || blogDataLocal[0];
+        
+        document.getElementById('blogDetailHero').innerHTML = `<h1>${blog.title}</h1><div class="blog-detail-meta"><i class="far fa-calendar-alt"></i> ${blog.date} | <i class="far fa-folder"></i> ${blog.category}</div>`;
+        document.getElementById('blogDetailContent').innerHTML = `
+            <div class="blog-detail-body">${blog.content}<a href="blog.html" class="btn-secondary back-to-blog">← Kembali ke Blog</a></div>
+        `;
+        renderSocialLinks();
+        initMobileMenu();
+    </script>
+</body>
+</html>

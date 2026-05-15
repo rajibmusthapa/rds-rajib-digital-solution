@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Live Chat - RDS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .chat-container { max-width: 800px; margin: 120px auto 40px; background: #111827; border-radius: 20px; overflow: hidden; border: 1px solid #64ffda; }
+        .chat-header { background: #64ffda; padding: 15px 20px; color: #0a192f; display: flex; align-items: center; gap: 10px; }
+        .chat-messages { height: 400px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+        .message { max-width: 70%; padding: 10px 15px; border-radius: 15px; }
+        .message.user { align-self: flex-end; background: #64ffda; color: #0a192f; }
+        .message.bot { align-self: flex-start; background: #0a0f1a; border: 1px solid #2d3a5e; }
+        .chat-input { display: flex; padding: 20px; border-top: 1px solid #2d3a5e; gap: 10px; }
+        .chat-input input { flex: 1; padding: 12px; background: #0a0f1a; border: 1px solid #2d3a5e; border-radius: 30px; color: #e6f1ff; }
+        .chat-input button { background: #64ffda; color: #0a192f; border: none; padding: 0 20px; border-radius: 30px; cursor: pointer; }
+        .name-form { padding: 20px; text-align: center; }
+        .name-form input { padding: 12px; margin: 10px; border-radius: 30px; border: 1px solid #2d3a5e; background: #0a0f1a; color: #e6f1ff; }
+        @media (max-width: 768px) { .message { max-width: 85%; } }
+    </style>
+</head>
+<body>
+    <a href="https://wa.me/628211951858" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo"><h1>RDS</h1><p>Rajib Digital Solution</p></div>
+            <nav class="nav" id="navMenu">
+                <a href="index.html">Beranda</a>
+                <a href="services.html">Layanan</a>
+                <a href="portfolio.html">Portofolio</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Kontak</a>
+                <a href="booking.html">Booking</a>
+                <a href="chat.html">Live Chat</a>
+            </nav>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <i class="fas fa-headset"></i>
+            <h3>Live Chat RDS</h3>
+        </div>
+        <div id="chatArea">
+            <div class="name-form" id="nameForm">
+                <p>Masukkan nama Anda untuk memulai chat</p>
+                <input type="text" id="userName" placeholder="Nama Anda">
+                <button id="startChatBtn" class="btn-primary">Mulai Chat</button>
+            </div>
+            <div id="chatContent" style="display: none;">
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input">
+                    <input type="text" id="chatMessage" placeholder="Ketik pesan...">
+                    <button id="sendMsgBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><h3>RDS</h3><div class="social-links" id="socialLinks"></div></div>
+                <div><h4>Kontak</h4><p><i class="fab fa-whatsapp"></i> +62 821-1951-858</p></div>
+            </div>
+            <div class="footer-bottom"><p>© 2025 RDS - Rajib Digital Solution.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        let userName = '';
+        
+        document.getElementById('startChatBtn').addEventListener('click', () => {
+            userName = document.getElementById('userName').value;
+            if (!userName) return alert('Masukkan nama!');
+            document.getElementById('nameForm').style.display = 'none';
+            document.getElementById('chatContent').style.display = 'block';
+            const welcomeMsg = `Halo ${userName}! Selamat datang di Live Chat RDS. Ada yang bisa kami bantu?`;
+            document.getElementById('chatMessages').innerHTML = `<div class="message bot"><strong>Admin RDS:</strong><br>${welcomeMsg}</div>`;
+        });
+        
+        document.getElementById('sendMsgBtn').addEventListener('click', () => {
+            const msg = document.getElementById('chatMessage').value;
+            if (!msg.trim()) return;
+            const messagesDiv = document.getElementById('chatMessages');
+            messagesDiv.innerHTML += `<div class="message user"><strong>${userName}:</strong><br>${msg}</div>`;
+            document.getElementById('chatMessage').value = '';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            setTimeout(() => {
+                messagesDiv.innerHTML += `<div class="message bot"><strong>Admin RDS:</strong><br>Terima kasih pesannya. Kami akan segera merespon. Silakan tunggu atau hubungi kami via WhatsApp.</div>`;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }, 1000);
+        });
+        
+        document.getElementById('chatMessage').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') document.getElementById('sendMsgBtn').click();
+        });
+        
+        renderSocialLinks();
+        initMobileMenu();
+    </script>
+</body>
+</html>
